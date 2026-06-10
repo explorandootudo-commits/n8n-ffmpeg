@@ -15,7 +15,7 @@ services:
       - GENERIC_TIMEZONE=America/Sao_Paulo
       - TZ=America/Sao_Paulo
       - N8N_SECURE_COOKIE=false
-      - N8N_RESTRICT_FILE_ACCESS_TO=/files,/home/node/.n8n
+      - N8N_RESTRICT_FILE_ACCESS_TO=/home/node/.n8n
       - NODE_FUNCTION_ALLOW_BUILTIN=fs
       - NODES_EXCLUDE=
     volumes:
