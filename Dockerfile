@@ -1,7 +1,12 @@
+FROM mwader/static-ffmpeg:7.1.1 AS ffmpeg
+
 FROM n8nio/n8n:2.23.4
 
 USER root
 
-RUN apt-get update && apt-get install -y ffmpeg && rm -rf /var/lib/apt/lists/*
+COPY --from=ffmpeg /ffmpeg /usr/local/bin/ffmpeg
+COPY --from=ffmpeg /ffprobe /usr/local/bin/ffprobe
+
+RUN chmod +x /usr/local/bin/ffmpeg /usr/local/bin/ffprobe
 
 USER node
